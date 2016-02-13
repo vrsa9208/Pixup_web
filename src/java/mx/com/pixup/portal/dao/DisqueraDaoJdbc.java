@@ -17,7 +17,7 @@ import org.apache.commons.dbcp.BasicDataSource;
 
 /**
  *
- * @author vrsa9208
+ * @author JAVA-08
  */
 public class DisqueraDaoJdbc implements DisqueraDao{
     
