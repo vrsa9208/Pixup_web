@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List" %>
+<%@page import="mx.com.pixup.model.entidades.*" %>
 
 <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
@@ -93,7 +95,7 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="index.html" class="active">Home</a></li>
+                            <!--<li><a href="index.html" class="active">Home</a></li>
                             <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="<%= request.getContextPath()%>/store?action=products">Products</a></li>
@@ -110,7 +112,14 @@
                                 </ul>
                             </li> 
                             <li><a href="404.html">404</a></li>
-                            <li><a href="contact-us.html">Contact</a></li>
+                            <li><a href="contact-us.html">Contact</a></li>-->
+                            <% 
+                                List<Menu> menuPrincipal = (List<Menu>)request.getAttribute("menuPrincipal");
+                                for(Menu menu : menuPrincipal){
+                                    out.print("<li><a href=\"" + menu.getLiga() + "\">"
+                                        + menu.getNombre() + "</a></li>");
+                                }
+                            %>
                         </ul>
                     </div>
                 </div>
