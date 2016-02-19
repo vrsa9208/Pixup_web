@@ -114,7 +114,7 @@
                             <li><a href="404.html">404</a></li>
                             <li><a href="contact-us.html">Contact</a></li>-->
                             <% 
-                                List<Menu> menuPrincipal = (List<Menu>)request.getAttribute("menuPrincipal");
+                                List<Menu> menuPrincipal = (List<Menu>)application.getAttribute("menuPrincipal");
                                 for(Menu menu : menuPrincipal){
                                     out.print("<li><a href=\"" + menu.getLiga() + "\">"
                                         + menu.getNombre() + "</a></li>");

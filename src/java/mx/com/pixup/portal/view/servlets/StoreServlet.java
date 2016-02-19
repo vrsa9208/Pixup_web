@@ -28,8 +28,6 @@ public class StoreServlet extends HttpServlet {
     
     //constantes para vistas
     private final String  VISTA_INICIO = "/vistas/index.jsp";
-    private List<Menu> menuPrincipal;
-    private IMenuService  menuService;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,15 +41,11 @@ public class StoreServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        menuService = MenuService.getInstance();
-        menuPrincipal = menuService.cargaMenuPrincipal();
         String accion = request.getParameter(ACCION);
         
         if(accion != null && ! accion.isEmpty()){
             //despacha cada accion que llegue al store
         }
-        
-        request.setAttribute("menuPrincipal", menuPrincipal); //poner un objeto como atributo
         request.getRequestDispatcher(VISTA_INICIO).forward(request, response);
     }
 

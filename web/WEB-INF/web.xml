@@ -4,9 +4,18 @@
         <servlet-name>StoreServlet</servlet-name>
         <servlet-class>mx.com.pixup.portal.view.servlets.StoreServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CatalogosServlet</servlet-name>
+        <servlet-class>mx.com.pixup.portal.view.servlets.CatalogosServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StoreServlet</servlet-name>
         <url-pattern>/store</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CatalogosServlet</servlet-name>
+        <url-pattern>/catalogos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
