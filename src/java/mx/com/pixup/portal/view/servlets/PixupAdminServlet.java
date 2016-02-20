@@ -23,6 +23,9 @@ public class PixupAdminServlet extends HttpServlet {
     public static final String ACCION_ADMIN = "action";
     public static final String PARAMETRO_RUTA_ABC_DISCOS = "discos";
     public static final String RUTA_ABC_DISCOS = "/discosadmin";
+    
+    public static final String RUTA_INDEX = "/admin/index.jsp";
+
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,6 +46,7 @@ public class PixupAdminServlet extends HttpServlet {
                 request.getRequestDispatcher(RUTA_ABC_DISCOS).forward(request, response);
             }
         }
+        request.getRequestDispatcher(RUTA_INDEX).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

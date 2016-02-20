@@ -5,9 +5,10 @@
  */
 package mx.com.pixup.portal.logica.services;
 
-import mx.com.pixup.portal.dao.DisqueraDao;
+
 import mx.com.pixup.portal.dao.impl.DisqueraDaoJdbc;
 import mx.com.pixup.portal.dao.impl.PaisDaoJdbc;
+import mx.com.pixup.portal.dao.interfaces.DisqueraDao;
 import mx.com.pixup.portal.dao.interfaces.PaisDao;
 import mx.com.pixup.portal.logica.interfaces.ICatalogoService;
 
