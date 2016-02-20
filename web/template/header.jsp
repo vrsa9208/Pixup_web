@@ -4,9 +4,11 @@
     Author     : JAVA-08
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List" %>
 <%@page import="mx.com.pixup.model.entidades.*" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
@@ -113,13 +115,20 @@
                             </li> 
                             <li><a href="404.html">404</a></li>
                             <li><a href="contact-us.html">Contact</a></li>-->
-                            <% 
+                            <c:set var="menuList" value="${applicationScope.catalogo_menu}" />
+                            <c:if test="${not empty menuList}" >
+                                <c:forEach items="${menuList}" var="menu">
+                                    <li><a href="<c:url value="${menu.liga}" />">${menu.nombre}</a></li>
+                                </c:forEach>
+                            </c:if>
+                            <%/*
                                 List<Menu> menuPrincipal = (List<Menu>)application.getAttribute("catalogo_menu");
                                 for(Menu menu : menuPrincipal){
                                     out.print("<li><a href=\"" + menu.getLiga() + "\">"
                                         + menu.getNombre() + "</a></li>");
                                 }
-                            %>
+                            */%>
+                            
                         </ul>
                     </div>
                 </div>

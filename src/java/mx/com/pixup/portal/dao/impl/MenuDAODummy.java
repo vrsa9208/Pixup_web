@@ -41,7 +41,7 @@ public class MenuDAODummy implements IMenu{
         Menu shop = new Menu();
         shop.setId(2);
         shop.setNombre("Shop");
-        shop.setLiga("#");
+        shop.setLiga("?action=products");
         shop.setEstatus(2);
         Submenu products = new Submenu();
         products.setId(1);
