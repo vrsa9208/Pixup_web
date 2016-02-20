@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List" %>
+<%@page import="mx.com.pixup.model.entidades.*" %>
 <%-------------Carga de Bibliotecas jstl --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -166,7 +168,9 @@
 
                 <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
-                        <h2 class="title text-center">Features Items</h2>
+                        <h2 class="title text-center">Productos</h2>
+                        
+                        
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">

@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mx.com.pixup.model.entidades.Menu;
+import mx.com.pixup.portal.logica.interfaces.IDiscoItemService;
 import mx.com.pixup.portal.logica.interfaces.IMenuService;
+import mx.com.pixup.portal.logica.services.DiscoItemService;
 import mx.com.pixup.portal.logica.services.MenuService;
 
 /**
@@ -45,6 +47,11 @@ public class StoreServlet extends HttpServlet {
         
         if(accion != null && ! accion.isEmpty()){
             //despacha cada accion que llegue al store
+            if(accion.equals("products")){
+                IDiscoItemService service = DiscoItemService.getInstance();
+                request.setAttribute("listaDiscos", service.getDiscos());
+                System.out.println("Size: " + service.getDiscos().size());
+            }
         }
         request.getRequestDispatcher(VISTA_INICIO).forward(request, response);
     }

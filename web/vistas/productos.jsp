@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <section id="advertisement">
     <div class="container">
         <img src="<%= request.getContextPath()%>/images/shop/advertisement.jpg" alt="" />
@@ -156,7 +157,37 @@
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center">Features Items</h2>
+                    <h2 class="title text-center">Productos</h2>
+                    <c:set var="listaDiscos" value="${requestScope.listaDiscos}" />
+                    <c:if test="${not empty listaDiscos}" >
+                            <c:forEach items="${listaDiscos}" var="disco">
+                                <div class="col-sm-4">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="http://placehold.it/300x300?text=${disco.artista}" alt="" />
+                                                <h2>$ ${disco.precio}</h2>
+                                                <p>${disco.titulo} - ${disco.artista}</p>
+                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar</a>
+                                            </div>
+                                            <div class="product-overlay">
+                                                <div class="overlay-content">
+                                                    <h2>$ ${disco.precio}</h2>
+                                                    <p>${disco.titulo} - ${disco.artista}</p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="choose">
+                                            <ul class="nav nav-pills nav-justified">
+                                                <li><a href="#"><i class="fa fa-plus-square"></i>Agregar</a></li>
+                                                <li><a href="<c:url value="store/disco?id=${disco.id}" />"><i class="fa fa-plus-square"></i>Detalles</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </c:if>
                     <div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
