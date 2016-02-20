@@ -50,7 +50,6 @@ public class StoreServlet extends HttpServlet {
             if(accion.equals("products")){
                 IDiscoItemService service = DiscoItemService.getInstance();
                 request.setAttribute("listaDiscos", service.getDiscos());
-                System.out.println("Size: " + service.getDiscos().size());
             }
         }
         request.getRequestDispatcher(VISTA_INICIO).forward(request, response);
