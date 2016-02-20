@@ -118,7 +118,21 @@
                             <c:set var="menuList" value="${applicationScope.catalogo_menu}" />
                             <c:if test="${not empty menuList}" >
                                 <c:forEach items="${menuList}" var="menu">
-                                    <li><a href="<c:url value="${menu.liga}" />">${menu.nombre}</a></li>
+                                    <c:if test="${not empty menu.submenu}">
+                                        <li class="dropdown"><a href="#"><c:out value="${menu.nombre}" />
+                                                <i class="fa fa-angle-down"></i></a>
+                                                <c:forEach items="${menu.submenu}" var="submenu">
+                                                    <ul role="menu" class="sub-menu">
+                                                        <li><a href="<c:url value="${submenu.liga}" />">
+                                                                <c:out value="${submenu.nombre}" /></a></li>
+                                                    </ul>
+                                                </c:forEach>
+                                        </li>
+                                    </c:if>
+                                    <c:if test="${empty menu.submenu}">
+                                        <li><a href="<c:url value="${menu.liga}" />">${menu.nombre}</a></li>
+                                    </c:if>    
+                                    
                                 </c:forEach>
                             </c:if>
                             <%/*
