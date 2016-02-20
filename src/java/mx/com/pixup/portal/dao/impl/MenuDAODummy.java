@@ -47,8 +47,13 @@ public class MenuDAODummy implements IMenu{
         products.setId(1);
         products.setNombre("Products");
         products.setLiga("/store?action=products");
+        Submenu articulos = new Submenu();
+        articulos.setId(1);
+        articulos.setNombre("Articulos");
+        articulos.setLiga("/store?action=products");
         List<Submenu> subMenuProducts = new ArrayList<>();
         subMenuProducts.add(products);
+        subMenuProducts.add(articulos);
         shop.setSubmenu(subMenuProducts);
         menus.add(shop);
         return menus;

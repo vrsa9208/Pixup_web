@@ -165,15 +165,16 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="http://placehold.it/300x300?text=${disco.artista}" alt="" />
+                                                <img src="<c:url value="${disco.rutaImagen}" />" alt="" />
+                                                <%--<img src="http://lorempixel.com/300/300/people/" alt="" />--%>
                                                 <h2>$ ${disco.precio}</h2>
-                                                <p>${disco.titulo} - ${disco.artista}</p>
+                                                <p>${disco.titulo}</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar</a>
                                             </div>
                                             <div class="product-overlay">
                                                 <div class="overlay-content">
                                                     <h2>$ ${disco.precio}</h2>
-                                                    <p>${disco.titulo} - ${disco.artista}</p>
+                                                    <p>${disco.titulo}</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar</a>
                                                 </div>
                                             </div>
@@ -188,7 +189,7 @@
                                 </div>
                             </c:forEach>
                         </c:if>
-                    <div class="col-sm-4">
+                    <!--<div class="col-sm-4">
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
@@ -496,9 +497,8 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-
-                    <ul class="pagination">
+                    </div>-->
+                    <ul class="pagination col-sm-9">
                         <li class="active"><a href="">1</a></li>
                         <li><a href="">2</a></li>
                         <li><a href="">3</a></li>

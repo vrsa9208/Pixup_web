@@ -7,32 +7,23 @@ package mx.com.pixup.portal.view.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import mx.com.pixup.model.entidades.Menu;
-import mx.com.pixup.portal.logica.interfaces.IDiscoItemService;
-import mx.com.pixup.portal.logica.interfaces.IDiscoService;
-import mx.com.pixup.portal.logica.interfaces.IMenuService;
-import mx.com.pixup.portal.logica.services.DiscoItemService;
-import mx.com.pixup.portal.logica.services.DiscoService;
-import mx.com.pixup.portal.logica.services.MenuService;
 
 /**
  *
  * @author JAVA-08
  */
-public class StoreServlet extends HttpServlet {
+@WebServlet(name = "PixupAdminServlet", urlPatterns = {"/admin"})
+public class PixupAdminServlet extends HttpServlet {
     
-    //constantes para acciones
-    private static final String ACCION = "action";
-    private static final String ACCION_LISTADO_DISCOS = "view";
-    
-    //constantes para vistas
-    private final String  VISTA_INICIO = "/vistas/index.jsp";
-    
+    public static final String ACCION_ADMIN = "action";
+    public static final String PARAMETRO_RUTA_ABC_DISCOS = "discos";
+    public static final String RUTA_ABC_DISCOS = "/discosadmin";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,19 +36,13 @@ public class StoreServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String accion = request.getParameter(ACCION);
+        String accion = request.getParameter(ACCION_ADMIN);
         
         if(accion != null && ! accion.isEmpty()){
-            //despacha cada accion que llegue al store
-            if(accion.equals("products")){
-                //IDiscoItemService service = DiscoItemService.getInstance();
-                //request.setAttribute("listaDiscos", service.getDiscos());
-                IDiscoService service = DiscoService.getInstance();
-                request.setAttribute("listaDiscos", service.cargaDiscos());
-                //System.out.println("Size : " + service.cargaDiscos().size());
+            if(accion.equals(PARAMETRO_RUTA_ABC_DISCOS)){
+                request.getRequestDispatcher(RUTA_ABC_DISCOS).forward(request, response);
             }
         }
-        request.getRequestDispatcher(VISTA_INICIO).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

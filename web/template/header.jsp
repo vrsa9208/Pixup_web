@@ -121,12 +121,14 @@
                                     <c:if test="${not empty menu.submenu}">
                                         <li class="dropdown"><a href="#"><c:out value="${menu.nombre}" />
                                                 <i class="fa fa-angle-down"></i></a>
+                                                <ul role="menu" class="sub-menu">
                                                 <c:forEach items="${menu.submenu}" var="submenu">
-                                                    <ul role="menu" class="sub-menu">
+                                                    
                                                         <li><a href="<c:url value="${submenu.liga}" />">
                                                                 <c:out value="${submenu.nombre}" /></a></li>
-                                                    </ul>
+                                                    
                                                 </c:forEach>
+                                                        </ul>
                                         </li>
                                     </c:if>
                                     <c:if test="${empty menu.submenu}">

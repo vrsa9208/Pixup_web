@@ -9,6 +9,14 @@
         <servlet-class>mx.com.pixup.portal.view.servlets.CatalogosServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>PixupAdminServlet</servlet-name>
+        <servlet-class>mx.com.pixup.portal.view.servlets.PixupAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PixupAdminDiscoServlet</servlet-name>
+        <servlet-class>mx.com.pixup.portal.view.servlets.PixupAdminDiscoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StoreServlet</servlet-name>
         <url-pattern>/store</url-pattern>
@@ -16,6 +24,14 @@
     <servlet-mapping>
         <servlet-name>CatalogosServlet</servlet-name>
         <url-pattern>/catalogos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PixupAdminServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PixupAdminDiscoServlet</servlet-name>
+        <url-pattern>/discosadmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
