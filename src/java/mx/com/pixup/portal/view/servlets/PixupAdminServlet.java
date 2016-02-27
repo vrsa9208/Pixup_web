@@ -12,6 +12,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import mx.com.pixup.portal.dao.interfaces.DiscoDao;
+import mx.com.pixup.portal.logica.interfaces.IDiscoService;
+import mx.com.pixup.portal.logica.services.DiscoService;
 
 /**
  *
@@ -43,6 +46,8 @@ public class PixupAdminServlet extends HttpServlet {
         
         if(accion != null && ! accion.isEmpty()){
             if(accion.equals(PARAMETRO_RUTA_ABC_DISCOS)){
+                //IDiscoService service 
+                //request.setAttribute("lista_discos", Disco);
                 request.getRequestDispatcher(RUTA_ABC_DISCOS).forward(request, response);
             }
         }

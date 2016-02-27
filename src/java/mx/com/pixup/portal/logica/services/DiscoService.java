@@ -35,5 +35,11 @@ public class DiscoService implements IDiscoService{
     public List<Disco> cargaDiscos() {
         return discoDao.findAllDiscos();
     }
+
+    @Override
+    public Boolean guardaDisco(Disco disco) {
+        Disco discoTemp = discoDao.insertDisco(disco);
+        return (discoTemp != null) ? Boolean.TRUE : Boolean.FALSE;
+    }
     
 }

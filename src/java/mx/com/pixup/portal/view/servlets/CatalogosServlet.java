@@ -14,6 +14,9 @@ import mx.com.pixup.portal.logica.interfaces.ICatalogoService;
 import mx.com.pixup.portal.logica.interfaces.IMenuService;
 import mx.com.pixup.portal.logica.services.CatalogoService;
 import mx.com.pixup.portal.logica.services.MenuService;
+import mx.com.pixup.portal.model.Disquera;
+import mx.com.pixup.portal.model.GeneroMusical;
+import mx.com.pixup.portal.model.Idioma;
 import mx.com.pixup.portal.model.Pais;
 
 /**
@@ -24,6 +27,10 @@ public class CatalogosServlet extends HttpServlet {
 
     private static final String CATALOGO_MENU = "catalogo_menu";
     private static final String CATALOGO_PAIS = "catalogo_pais";
+    private static final String CATALOGO_DISQUERA = "catalogo_disquera";
+    private static final String CATALOGO_IDIOMAS = "catalogo_idiomas";
+    private static final String CATALOGO_GENERO_MUSICAL = "catalogo_genero_musical";
+    
     
     private List<Menu> menuPrincipal;
     private IMenuService menuService; 
@@ -43,6 +50,20 @@ public class CatalogosServlet extends HttpServlet {
         
         List<Pais> catalogoPaises = (List<Pais>) catalogoService.cargaCatalogo(ICatalogoService.CATALOGO_PAIS);
         getServletContext().setAttribute(CATALOGO_PAIS, catalogoPaises);
+        System.out.println("Catalogos pais...");
+        
+        List<Disquera> catalogoDisqueras = (List<Disquera>) catalogoService.cargaCatalogo(ICatalogoService.CATALOGO_DISQUERA);
+        getServletContext().setAttribute(CATALOGO_DISQUERA, catalogoDisqueras);
+        System.out.println("Catalogos disquera...");
+        
+        List<Idioma> catalogoIdiomas = (List<Idioma>) catalogoService.cargaCatalogo(ICatalogoService.CATALOGO_IDIOMAS);
+        getServletContext().setAttribute(CATALOGO_IDIOMAS, catalogoIdiomas);
+        System.out.println("Catalogos idiomas...");
+        
+        List<GeneroMusical> catalogoGeneroMusical = (List<GeneroMusical>) catalogoService.cargaCatalogo(ICatalogoService.CATALOGO_GENERO_MUSICAL);
+        getServletContext().setAttribute(CATALOGO_GENERO_MUSICAL, catalogoGeneroMusical);
+        System.out.println("Catalogos genero musical...");
+        
         System.out.println("Catalogos cargados en scope application...");
     }
 }

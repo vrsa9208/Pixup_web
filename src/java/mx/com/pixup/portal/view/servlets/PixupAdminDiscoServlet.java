@@ -7,18 +7,34 @@ package mx.com.pixup.portal.view.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import mx.com.pixup.portal.logica.interfaces.IDiscoService;
+import mx.com.pixup.portal.logica.services.DiscoService;
+import mx.com.pixup.portal.model.Artista;
+import mx.com.pixup.portal.model.Cancion;
+import mx.com.pixup.portal.model.Disco;
+import mx.com.pixup.portal.view.traductores.TraductorDisco;
 
 /**
  *
  * @author JAVA-08
  */
 public class PixupAdminDiscoServlet extends HttpServlet {
+    private IDiscoService discoService;
+    
+    private static final String LISTA_DISCOS = "lista_discos";
 
     private static final String RUTA_INICIO = "/admin/discosadmin.jsp";
+    
+    private static final String ACCION = "action";
+    private static final String ACCION_ADD = "add";
+    private static final String ACCION_EDIT = "edit";
+    private static final String DISCO_ATRIBUTO = "discoAtributo";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -30,7 +46,29 @@ public class PixupAdminDiscoServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        discoService = DiscoService.getInstance();
+        String accion = request.getParameter(ACCION);
         
+        if(accion != null && !accion.isEmpty()){
+            if(accion.equals(ACCION_ADD)){
+                TraductorDisco traductor = new TraductorDisco();
+                Disco disco = null;
+                if(traductor.validaDatos(request)){
+                    disco = traductor.getDisco();
+                    disco.setArtistas(new ArrayList<Artista>());
+                    disco.setCanciones(new ArrayList<Cancion>());
+                    if( !discoService.guardaDisco(disco)){
+                        request.setAttribute("error", "ERROR AL INTENTAR GUARDAR EL DISCO, " +
+                                "FAVOR DE INTENTAR NUEVAMENTE");
+                    }
+                } else {
+                    disco = traductor.getDisco();
+                    request.setAttribute(DISCO_ATRIBUTO, disco);
+                }
+            }
+        }
+        List<Disco> discos = discoService.cargaDiscos();
+        request.setAttribute(LISTA_DISCOS, discos);
         request.getRequestDispatcher(RUTA_INICIO).forward(request, response);
     }
 

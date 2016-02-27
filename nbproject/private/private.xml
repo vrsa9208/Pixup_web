@@ -3,14 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/web/template/body.jsp</file>
-            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/logica/services/DiscoItemService.java</file>
+            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/dao/impl/MenuDAODummy.java</file>
+            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/view/servlets/PixupAdminServlet.java</file>
             <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/view/servlets/StoreServlet.java</file>
-            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/model/entidades/DiscoItem.java</file>
-            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/dao/impl/DiscoItemDAODummy.java</file>
-            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/logica/services/MenuService.java</file>
+            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/logica/interfaces/ICatalogoService.java</file>
+            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/view/servlets/PixupAdminDiscoServlet.java</file>
             <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/web/vistas/productos.jsp</file>
+            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/logica/services/CatalogoService.java</file>
             <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/web/template/header.jsp</file>
+            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/web/admin/index.jsp</file>
+            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/view/servlets/CatalogosServlet.java</file>
+            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/web/admin/discosadmin.jsp</file>
         </group>
     </open-files>
 </project-private>
