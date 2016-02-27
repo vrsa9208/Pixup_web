@@ -230,7 +230,7 @@ public class TraductorDisco {
         
         
         
-        return Boolean.TRUE;
+        return validos;
     }
     
     public Disco getDisco(){
@@ -238,7 +238,7 @@ public class TraductorDisco {
         disco.setTitulo(this.getTitulo());
         disco.setPrecio(this.getPrecio());
         disco.setCantidadDisponible(this.getCantidad());
-        disco.setFechaLanzamiento(new java.sql.Date(this.getFechaLanzamiento().getTime()));
+        if(this.fechaLanzamiento!= null) disco.setFechaLanzamiento(new java.sql.Date(this.getFechaLanzamiento().getTime()));
         Idioma idioma = new Idioma();
         idioma.setId(this.getIdIdioma());
         disco.setIdioma(idioma);

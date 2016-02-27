@@ -54,6 +54,7 @@ public class PixupAdminDiscoServlet extends HttpServlet {
             if(accion.equals(ACCION_ADD)){
                 TraductorDisco traductor = new TraductorDisco();
                 Disco disco = null;
+                System.out.println("validacion " + traductor.validaDatos(request));
                 if(traductor.validaDatos(request) == Boolean.TRUE){
                     disco = traductor.getDisco();
                     disco.setArtistas(new ArrayList<Artista>());
@@ -63,6 +64,7 @@ public class PixupAdminDiscoServlet extends HttpServlet {
                                 "FAVOR DE INTENTAR NUEVAMENTE");
                     }
                 } else {
+                    request.setAttribute("error", "REVISA LOS DATOS INGRESADOS");
                     disco = traductor.getDisco();
                     request.setAttribute(DISCO_ATRIBUTO, disco);
                 }

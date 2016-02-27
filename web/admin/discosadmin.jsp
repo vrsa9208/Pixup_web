@@ -20,6 +20,7 @@
             </p>
         </c:if>
         <form action="<c:url value="/discosadmin" />" method="POST" >
+            <c:set var="discoAtributo" value="${requestScope.discoAtributo}" />
             <c:if test="${not empty requestScope.action}">
                 <input type="hidden" name="action" value="edit" />
             </c:if>
@@ -28,16 +29,16 @@
             </c:if>
             <table align="center">
                 <tr>
-                    <td>Título:</td><td><input type="text" name="titulo" /></td>
+                    <td>Título:</td><td><input type="text" name="titulo" value="${discoAtributo.titulo}" /></td>
                 </tr>
                 <tr>
-                    <td>Fecha Lanzamiento:</td><td><input type="text" name="fechaLanzamiento" /></td>
+                    <td>Fecha Lanzamiento:</td><td><input type="text" name="fechaLanzamiento" value="${discoAtributo.fechaLanzamiento}" /></td>
                 </tr>
                 <tr>
-                    <td>Precio:</td><td><input type="text" name="precio" /></td>
+                    <td>Precio:</td><td><input type="text" name="precio" value="${discoAtributo.precio}" /></td>
                 </tr>
                 <tr>
-                    <td>Cantidad:</td><td><input type="text" name="cantidad" /></td>
+                    <td>Cantidad:</td><td><input type="text" name="cantidad" value="${discoAtributo.cantidad}" /></td>
                 </tr>
                 <tr>
                     <td>Idioma:</td>
