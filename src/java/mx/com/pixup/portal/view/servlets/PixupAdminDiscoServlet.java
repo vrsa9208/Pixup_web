@@ -63,10 +63,12 @@ public class PixupAdminDiscoServlet extends HttpServlet {
                     if( !discoService.guardaDisco(disco)){
                         request.setAttribute("error", "ERROR AL INTENTAR GUARDAR EL DISCO, " +
                                 "FAVOR DE INTENTAR NUEVAMENTE");
+                        request.setAttribute(DISCO_ATRIBUTO, disco);
                     }
                 } else {
                     request.setAttribute("error", "REVISA LOS DATOS INGRESADOS");
                     disco = traductor.getDisco();
+                    System.out.println(disco);
                     request.setAttribute(DISCO_ATRIBUTO, disco);
                 }
             }

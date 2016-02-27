@@ -165,7 +165,13 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="<c:url value="${disco.rutaImagen}" />" alt="" />
+                                                <c:if test="${not empty disco.rutaImagen}">
+                                                    <img src="<c:url value="${disco.rutaImagen}" />" alt="" />
+                                                </c:if>
+                                                <c:if test="${empty disco.rutaImagen}">
+                                                    <img src="http://placehold.it/300x300" alt="No molestar" />
+                                                </c:if>
+                                                
                                                 <%--<img src="http://lorempixel.com/300/300/people/" alt="" />--%>
                                                 <h2>$ ${disco.precio}</h2>
                                                 <p>${disco.titulo}</p>
