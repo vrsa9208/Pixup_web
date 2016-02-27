@@ -7,6 +7,19 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+
+<c:if test="${empty sessionScope.idioma}">
+   <fmt:setLocale value="es_MX" scope="session" /> 
+</c:if>
+
+<c:if test="${not empty sessionScope.idioma}">
+    <fmt:setLocale value="${sessionScope.idioma}" scope="session" /> 
+</c:if>
+
+<fmt:setBundle basename="pixup" var="bundle" scope="application" />
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,7 +42,7 @@
             <c:if test="${empty requestScope.action}">
                 <input type="hidden" name="action" value="add" />
             </c:if>
-                <input type="hidden" value="${discoAtributo != null ? discoAtributo.id : null}" name="id" />
+            <input type="hidden" value="${discoAtributo != null ? discoAtributo.id : null}" name="id" />
             <table align="center">
                 <tr>
                     <td><fmt:message bundle="${bundle}" key="etiqueta.disco.admin.titulo" /></td><td><input type="text" name="titulo" value="${discoAtributo != null ? discoAtributo.titulo : null}" /></td>
@@ -159,5 +172,9 @@
                 </c:forEach>
             </tbody>
         </table>
+        <h3>Idiomas Disponibles</h3>
+        <a href="<c:url value="/Locale?idioma=en_US" />">Inglés</a>
+        <a href="<c:url value="/Locale?idioma=es_MX" />">Español</a>
+        <a href="<c:url value="/Locale?idioma=it_IT" />">Italiano</a>
     </body>
 </html>

@@ -17,6 +17,10 @@
         <servlet-name>PixupAdminDiscoServlet</servlet-name>
         <servlet-class>mx.com.pixup.portal.view.servlets.PixupAdminDiscoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Locale</servlet-name>
+        <servlet-class>mx.com.pixup.portal.view.servlets.Locale</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StoreServlet</servlet-name>
         <url-pattern>/store</url-pattern>
@@ -32,6 +36,10 @@
     <servlet-mapping>
         <servlet-name>PixupAdminDiscoServlet</servlet-name>
         <url-pattern>/discosadmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Locale</servlet-name>
+        <url-pattern>/Locale</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

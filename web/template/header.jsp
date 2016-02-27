@@ -10,6 +10,7 @@
 <%@page import="mx.com.pixup.model.entidades.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
 <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
         <div class="container">
