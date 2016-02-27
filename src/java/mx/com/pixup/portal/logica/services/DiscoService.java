@@ -41,5 +41,13 @@ public class DiscoService implements IDiscoService{
         Disco discoTemp = discoDao.insertDisco(disco);
         return (discoTemp != null) ? Boolean.TRUE : Boolean.FALSE;
     }
+
+    @Override
+    public void eliminaDisco(int id_disco) {
+        Disco disco = new Disco();
+        disco.setId(id_disco);
+        discoDao.deleteDisco(disco);
+        disco = null;
+    }
     
 }

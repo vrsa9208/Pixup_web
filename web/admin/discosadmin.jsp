@@ -136,8 +136,8 @@
                         <td>${disco.pais.nombre}</td>
                         <td>${disco.precio}</td>
                         <td>
-                            <a href="<c:url value="/discosadmin?action=edit&id=${disco.id}" />">Editar</a>
-                            <a href="<c:url value="/discosadmin?action=delete&id=${disco.id}" />">Eliminar</a>
+                            <a href="<c:url value="/discosadmin?action=edit&idDisco=${disco.id}" />">Editar</a>
+                            <a href="<c:url value="/discosadmin?action=delete&idDisco=${disco.id}" />">Eliminar</a>
                         </td>
                     </tr>
                 </c:forEach>

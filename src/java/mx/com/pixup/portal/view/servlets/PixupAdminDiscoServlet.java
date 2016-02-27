@@ -34,6 +34,7 @@ public class PixupAdminDiscoServlet extends HttpServlet {
     private static final String ACCION = "action";
     private static final String ACCION_ADD = "add";
     private static final String ACCION_EDIT = "edit";
+    private static final String ACCION_DELETE = "delete";
     private static final String DISCO_ATRIBUTO = "discoAtributo";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -53,7 +54,7 @@ public class PixupAdminDiscoServlet extends HttpServlet {
             if(accion.equals(ACCION_ADD)){
                 TraductorDisco traductor = new TraductorDisco();
                 Disco disco = null;
-                if(traductor.validaDatos(request)){
+                if(traductor.validaDatos(request) == Boolean.TRUE){
                     disco = traductor.getDisco();
                     disco.setArtistas(new ArrayList<Artista>());
                     disco.setCanciones(new ArrayList<Cancion>());
@@ -64,6 +65,18 @@ public class PixupAdminDiscoServlet extends HttpServlet {
                 } else {
                     disco = traductor.getDisco();
                     request.setAttribute(DISCO_ATRIBUTO, disco);
+                }
+            }
+            else if (accion.equals(ACCION_DELETE)){
+                String idDiscoParam = request.getParameter("idDisco");
+                if(idDiscoParam != null && !idDiscoParam.isEmpty()){
+                    Integer idDisco = -1;
+                    try{
+                        idDisco = Integer.parseInt(idDiscoParam);
+                        this.discoService.eliminaDisco(idDisco);
+                    } catch(NumberFormatException nex){
+                        nex.getMessage();
+                    }
                 }
             }
         }
