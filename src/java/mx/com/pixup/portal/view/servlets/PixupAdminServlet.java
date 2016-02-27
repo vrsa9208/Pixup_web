@@ -49,6 +49,7 @@ public class PixupAdminServlet extends HttpServlet {
                 //IDiscoService service 
                 //request.setAttribute("lista_discos", Disco);
                 request.getRequestDispatcher(RUTA_ABC_DISCOS).forward(request, response);
+                return;
             }
         }
         request.getRequestDispatcher(RUTA_INDEX).forward(request, response);

@@ -23,6 +23,7 @@ import mx.com.pixup.portal.model.Pais;
  */
 public class TraductorDisco {
 
+    private Integer id;
     private SimpleDateFormat formato = new SimpleDateFormat("YYYY-MM-DD");
     private String titulo;
     private Date fechaLanzamiento;
@@ -32,6 +33,13 @@ public class TraductorDisco {
     private Integer idPais;
     private Integer idGenero;
 
+    public Integer getId(){
+        return this.id;
+    }
+    
+    public void setId(Integer id){
+        this.id = id;
+    }
     /**
      * @return the titulo
      */
@@ -132,6 +140,7 @@ public class TraductorDisco {
 
     public Boolean validaDatos(HttpServletRequest request) {
         Boolean validos = Boolean.TRUE;
+        String id = request.getParameter("id");
         String titulo = request.getParameter("titulo");
         String fecha = request.getParameter("fechaLanzamiento");
         String precio = request.getParameter("precio");
@@ -141,6 +150,11 @@ public class TraductorDisco {
         String genero = request.getParameter("genero_musical");
         String disquera = request.getParameter("disquera");
 
+        if(id != null && !id.isEmpty()){
+            //System.out.println(id + "===========> id");
+            this.id = Integer.parseInt(id);
+        }
+        
         if(titulo != null && !titulo.isEmpty()){
             this.titulo = titulo;
         }
@@ -235,6 +249,9 @@ public class TraductorDisco {
     
     public Disco getDisco(){
         Disco disco = new Disco();
+        if(this.getId() != null){
+            disco.setId(this.getId());
+        }
         disco.setTitulo(this.getTitulo());
         disco.setPrecio(this.getPrecio());
         disco.setCantidadDisponible(this.getCantidad());

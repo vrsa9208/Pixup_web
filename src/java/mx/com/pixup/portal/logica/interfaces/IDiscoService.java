@@ -16,4 +16,6 @@ public interface IDiscoService {
     List<Disco> cargaDiscos();
     Boolean guardaDisco(Disco disco);
     void eliminaDisco(int id_disco);
+    Disco buscaDisco(Integer id);
+    Boolean actualizaDisco(Disco disco);
 }

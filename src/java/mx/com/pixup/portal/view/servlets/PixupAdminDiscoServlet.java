@@ -34,6 +34,7 @@ public class PixupAdminDiscoServlet extends HttpServlet {
     private static final String ACCION = "action";
     private static final String ACCION_ADD = "add";
     private static final String ACCION_EDIT = "edit";
+    private static final String ACCION_GET = "get";
     private static final String ACCION_DELETE = "delete";
     private static final String DISCO_ATRIBUTO = "discoAtributo";
     /**
@@ -79,6 +80,49 @@ public class PixupAdminDiscoServlet extends HttpServlet {
                     } catch(NumberFormatException nex){
                         nex.getMessage();
                     }
+                }
+            }
+            
+            else if (accion.equals(ACCION_GET)){
+                System.out.println("Accion GET");
+                String idDiscoParam = request.getParameter("idDisco");
+                if(idDiscoParam != null && !idDiscoParam.isEmpty()){
+                    Integer idDisco = -1;
+                    try{
+                        idDisco = Integer.parseInt(idDiscoParam);
+                        Disco disco = discoService.buscaDisco(idDisco);
+                        if(disco != null && disco.getId() != null){
+                            request.setAttribute(ACCION, ACCION_EDIT);
+                            request.setAttribute(DISCO_ATRIBUTO, disco);
+                        }
+                        else{
+                            request.setAttribute("error", "NO EXISTE EL DISCO");
+                        }
+                    } catch(NumberFormatException nex){
+                        nex.getMessage();
+                    }
+                }
+            }
+            
+            else if (accion.equals(ACCION_EDIT)){
+                TraductorDisco traductor = new TraductorDisco();
+                Disco disco = null;
+                System.out.println("validacion " + traductor.validaDatos(request));
+                if(traductor.validaDatos(request) == Boolean.TRUE){
+                    disco = traductor.getDisco();
+                    //disco.setArtistas(new ArrayList<Artista>());
+                    //disco.setCanciones(new ArrayList<Cancion>());
+                    if( !discoService.actualizaDisco(disco)){
+                        request.setAttribute("error", "ERROR AL INTENTAR GUARDAR EL DISCO, " +
+                                "FAVOR DE INTENTAR NUEVAMENTE");
+                        request.setAttribute(DISCO_ATRIBUTO, disco);
+                        request.setAttribute(ACCION, ACCION_EDIT);
+                    }
+                } else {
+                    request.setAttribute("error", "REVISA LOS DATOS INGRESADOS");
+                    disco = traductor.getDisco();
+                    request.setAttribute(DISCO_ATRIBUTO, disco);
+                    request.setAttribute(ACCION, ACCION_EDIT);
                 }
             }
         }

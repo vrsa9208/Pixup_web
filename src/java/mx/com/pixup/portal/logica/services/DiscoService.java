@@ -49,5 +49,15 @@ public class DiscoService implements IDiscoService{
         discoDao.deleteDisco(disco);
         disco = null;
     }
+
+    @Override
+    public Disco buscaDisco(Integer id) {
+        return discoDao.findById(id);
+    }
+
+    @Override
+    public Boolean actualizaDisco(Disco disco) {
+        return discoDao.updateDisco(disco) != null ? Boolean.TRUE : Boolean.FALSE;
+    }
     
 }
