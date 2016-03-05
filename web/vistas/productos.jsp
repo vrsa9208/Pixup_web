@@ -175,13 +175,13 @@
                                                 <%--<img src="http://lorempixel.com/300/300/people/" alt="" />--%>
                                                 <h2>$ ${disco.precio}</h2>
                                                 <p>${disco.titulo}</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar</a>
+                                                <a href="<c:url value="/store?action=addCart&idDisco=${disco.id}" />" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar</a>
                                             </div>
                                             <div class="product-overlay">
                                                 <div class="overlay-content">
                                                     <h2>$ ${disco.precio}</h2>
                                                     <p>${disco.titulo}</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar</a>
+                                                    <a href="<c:url value="/store?action=addCart&idDisco=${disco.id}" />" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/logica/services/DiscoService.java</file>
             <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/view/servlets/PixupAdminServlet.java</file>
+            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/view/servlets/Locale.java</file>
             <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/view/servlets/PixupAdminDiscoServlet.java</file>
             <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/logica/interfaces/IDiscoService.java</file>
-            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/mx/com/pixup/portal/view/traductores/TraductorDisco.java</file>
+            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/web/template/header.jsp</file>
+            <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/src/java/pixup_it_IT.properties</file>
             <file>file:/C:/Users/JAVA-08/Documents/VOSS/Modulo%206/Pixup_web/web/admin/discosadmin.jsp</file>
         </group>
     </open-files>

@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mx.com.pixup.model.entidades.Menu;
 import mx.com.pixup.portal.logica.interfaces.IDiscoItemService;
 import mx.com.pixup.portal.logica.interfaces.IDiscoService;
@@ -19,6 +20,8 @@ import mx.com.pixup.portal.logica.interfaces.IMenuService;
 import mx.com.pixup.portal.logica.services.DiscoItemService;
 import mx.com.pixup.portal.logica.services.DiscoService;
 import mx.com.pixup.portal.logica.services.MenuService;
+import mx.com.pixup.portal.model.Disco;
+import mx.com.pixup.portal.view.beans.Carrito;
 
 /**
  *
@@ -32,6 +35,7 @@ public class StoreServlet extends HttpServlet {
     
     //constantes para vistas
     private final String  VISTA_INICIO = "/vistas/index.jsp";
+    private IDiscoService discoService;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,19 +49,41 @@ public class StoreServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        HttpSession session = request.getSession();
         String accion = request.getParameter(ACCION);
+        Carrito carrito = null;
         
         if(accion != null && ! accion.isEmpty()){
             //despacha cada accion que llegue al store
             if(accion.equals("products")){
                 //IDiscoItemService service = DiscoItemService.getInstance();
                 //request.setAttribute("listaDiscos", service.getDiscos());
-                IDiscoService service = DiscoService.getInstance();
-                request.setAttribute("listaDiscos", service.cargaDiscos());
+                discoService = DiscoService.getInstance();
+                request.setAttribute("listaDiscos", discoService.cargaDiscos());
                 //System.out.println("Size : " + service.cargaDiscos().size());
+            }
+            else if(accion.equals("addCart")){
+                String idDiscoParam = request.getParameter("idDisco");
+                Integer idDisco = -1;
+                try{
+                    discoService = DiscoService.getInstance();
+                    carrito = (Carrito) session.getAttribute("carrito");
+                    if(carrito == null){
+                        carrito = new Carrito();
+                    }
+                    idDisco = Integer.parseInt(idDiscoParam);
+                    Disco disco = discoService.buscaDisco(idDisco);
+                    carrito.agregaDisco(disco);
+                    session.setAttribute("carrito", carrito);
+                    request.getRequestDispatcher("/store?action=products").forward(request, response);
+                    return;
+                }catch(NumberFormatException nex){
+                    nex.getMessage();
+                }
             }
         }
         request.getRequestDispatcher(VISTA_INICIO).forward(request, response);
+        return;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -17,6 +17,9 @@
         <c:when test="${accion eq 'products'}">
             <jsp:include page="/vistas/productos.jsp" />
         </c:when>
+        <c:when test="${accion eq 'viewCart'}">
+            <jsp:include page="/vistas/carrito.jsp" />
+        </c:when>
     </c:choose>
 </c:if>
 
